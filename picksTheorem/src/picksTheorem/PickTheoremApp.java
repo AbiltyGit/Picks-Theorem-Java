@@ -1,5 +1,7 @@
 package picksTheorem;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class PickTheoremApp {
@@ -28,6 +30,8 @@ public class PickTheoremApp {
     Coordinate prevCoordinate = shape.getCoordinates().get(0);
     
     LinearEquation linear = new LinearEquation(1,1,1);
+    
+    List<Coordinate> excludedCoordinates = new ArrayList<>();
     
     for(Coordinate c : shape.getCoordinates()) { // sign shapes coordinates as boundary and not interior
     	
@@ -64,6 +68,11 @@ public class PickTheoremApp {
     }
     prevCoordinate = c;
 
+    
+    
+    if(c.bit1 && c.bit2)
+    excludedCoordinates.add(c);
+    	
     }
     
 
@@ -89,6 +98,8 @@ public class PickTheoremApp {
         stack.clear();
     }
 
+    for(Coordinate lastCoord: excludedCoordinates)
+    grid.points[lastCoord.y][lastCoord.x] = new Point(true, false);	
     	
     	grid.signed = true;
     	return grid;
@@ -103,10 +114,10 @@ public class PickTheoremApp {
     
     for(Point[] row : grid.points) {
     for(Point point : row ) {
-    if(point.isBoundary)
+    if(point.isBoundary && !point.isInterior)
     area += 0.5;	
   
-    if(point.isInterior)
+    if(point.isInterior && !point.isBoundary)
     area++;
     }   
     }
