@@ -1,2 +1,4 @@
 You can see how functions are used in main. This is a software that takes coordinates(each coordinate can include 2 arbitrary flags for outlier situations) and gives you a string represantation of the shape grid(and also the area of the shape).
 It does this by signing firstly boundary points and secondly interior points with specific algorithms. This code is experimental and written for an article. You can test the methods on Main class.
+
+Algorithm puts the fake boundaries according to slope of the line if both flags are false(default) but sometimes that wont work and you would need to put flags manually. For example, paralellogram's both vertical lines have the same slope but on second line fake boundaries need to be put on x+1,y so that specific coordinate is signed. If bit1 is signed and bit2 isn't, it puts the fake boundaries on x,y regardless of slope. If bit1 isn't signed and bit2 is, it puts the fake boundaries on x + 1, y regardless of the shape.
