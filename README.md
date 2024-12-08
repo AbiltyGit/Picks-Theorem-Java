@@ -1,0 +1,2 @@
+You can see how functions are used in main. This is a software that takes coordinates(each coordinate can include 2 arbitrary flags for outlier situations) and gives you a string represantation of the shape grid(and also the area of the shape).
+It does this by signing firstly boundary points and secondly interior points with specific algorithms. This code is experimental and written for an article. You can test the methods on Main class.
