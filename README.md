@@ -3,4 +3,4 @@ It does this by signing firstly boundary points and secondly interior points wit
 
 Algorithm puts the fake boundaries according to slope of the line if both flags are false(default) but sometimes that wont work and you would need to put flags manually. For example, paralellogram's both vertical lines have the same slope but on second line fake boundaries need to be put on x+1, y so that specific coordinate is signed. If bit1 is signed and bit2 isn't, it puts the fake boundaries on x,y regardless of slope. If bit1 isn't signed and bit2 is, it puts the fake boundaries on x + 1, y regardless of the shape.
 
-As we mentioned earlier, you can get SVG format image represantation. There is a main method on ConvertSVG class which contains some test methods for that.
+As we mentioned earlier, you can get SVG format image represantation. There is a main method on ConvertVector class which contains some test methods for that.
